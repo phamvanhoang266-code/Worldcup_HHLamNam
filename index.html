@@ -273,10 +273,10 @@ max-height:20px!important;
 </style>
 
 </head>
-<body class="bg-red-50 text-slate-800 min-h-screen pb-24 flex justify-center overflow-x-hidden">
+<body class="bg-red-50 text-slate-800 min-h-screen pb-14 flex justify-center overflow-x-hidden">
 
     <!-- Container tối đa cho giao diện di động/máy tính bảng -->
-    <div class="w-full max-w-md bg-white shadow-lg backdrop-blur-xl min-h-screen relative flex flex-col">
+    <div class="w-full max-w-md bg-white shadow-lg backdrop-blur-xl h-screen relative flex flex-col overflow-hidden">
         
         <!-- Header ứng dụng -->
         
@@ -303,7 +303,7 @@ max-height:20px!important;
                     </div>
 
                     <div class="w-8 h-8 rounded-xl bg-white shadow-lg flex items-center justify-center shadow-lg overflow-hidden">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/2026_FIFA_World_Cup.svg/800px-2026_FIFA_World_Cup.svg.png"
+                        <img src="https://1000logos.net/wp-content/uploads/2023/05/World-Cup-2026-Emblem.png"
                             class="w-8 h-8 object-contain">
                     </div>
 
@@ -433,7 +433,8 @@ max-height:20px!important;
                 <!-- Admin cập nhật tỷ số thực tế -->
                 <div class="pt-3 border-t border-red-100/80 space-y-2">
                     <label class="text-sm font-bold text-amber-400 font-bold block"><i class="fa-solid fa-pen-to-square"></i> CẬP NHẬT TỶ SỐ THỰC TẾ & TÍNH ĐIỂM:</label>
-                    <div id="adminMatchUpdateList" class="max-h-48 overflow-y-auto space-y-1.5 hide-scrollbar">
+                    <div id="adminMatchUpdateList"
+						class="max-h-[72vh] overflow-y-auto space-y-2 hide-scrollbar pr-1">
                         <!-- Danh sách trận đấu cập nhật tỷ số -->
                     </div>
                 </div>
@@ -452,16 +453,16 @@ max-height:20px!important;
                 <!-- Thống kê chung -->
                 <div class="grid grid-cols-3 gap-1">
                     <div class="bg-slate-900/80 border border-red-100 p-3 rounded-xl text-center">
-                        <span class="text-sm font-bold text-slate-700 block mb-0.5">Thành Viên</span>
+                        <span class="text-sm font-bold text-slate-700 text-white block mb-0.5">Thành Viên</span>
                         <span id="statUsersCount" class="text-base font-bold text-white">-</span>
                     </div>
                     <div class="bg-slate-900/80 border border-red-100 p-3 rounded-xl text-center">
-                        <span class="text-sm font-bold text-slate-700 block mb-0.5">Trận Dự Đoán</span>
-                        <span id="statMatchesCount" class="text-base font-bold text-indigo-900 font-black">-</span>
+                        <span class="text-sm font-bold text-slate-700 text-white block mb-0.5">Trận Dự Đoán</span>
+                        <span id="statMatchesCount" class="text-base font-bold text-white">-</span>
                     </div>
                     <div class="bg-slate-900/80 border border-red-100 p-3 rounded-xl text-center">
-                        <span class="text-sm font-bold text-slate-700 block mb-0.5">Lượt Đoán</span>
-                        <span id="statPredictsCount" class="text-base font-bold text-emerald-800 font-black">-</span>
+                        <span class="text-sm font-bold text-slate-700 text-white block mb-0.5">Lượt Đoán</span>
+                        <span id="statPredictsCount" class="text-base font-bold text-white">-</span>
                     </div>
                 </div>
 
@@ -480,26 +481,14 @@ max-height:20px!important;
 
             <!-- ================= TAB 2: CÁ NHÂN (ĐĂNG NHẬP / CHỌN TÊN) ================= -->
             <section id="tab-profile" class="hidden space-y-3">
-                <div class="text-center py-2">
+                <!--<div class="text-center py-2">
                     <div class="w-16 h-16 rounded-full bg-slate-800 border-2 border-indigo-500/30 mx-auto flex items-center justify-center mb-3">
                         <i class="fa-regular fa-user text-2xl text-slate-300"></i>
                     </div>
                     <h2 class="text-lg font-bold text-white">XÁC MINH CÁ NHÂN</h2>
                     <p class="text-base text-slate-700 max-w-xs mx-auto mt-1">Chọn chính xác tên của bạn để mở khóa bảng dự đoán cá nhân của riêng mình.</p>
                 </div>
-
-                <!-- HỘP TÌM KIẾM THÔNG MINH (Search Box) -->
-                <div class="bg-slate-900/90 border border-red-100 p-2.5 rounded-2xl shadow-lg space-y-3">
-                    <label class="block text-base font-semibold text-indigo-900 font-black uppercase tracking-wider">Tìm kiếm tài khoản nhanh</label>
-                    <div class="relative">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-700 text-base"></i>
-                        <input id="userSearchInput" type="text" oninput="filterUserList()" placeholder="Nhập tên nhân viên..." class="w-full bg-slate-950 border border-red-100 rounded-xl pl-10 pr-4 py-2 text-base text-slate-100 focus:outline-none focus:border-indigo-500 transition">
-                    </div>
-
-                    <!-- Danh sách kết quả tìm kiếm -->
-                    <div id="searchUserResults" class="max-h-56 overflow-y-auto space-y-1.5 hide-scrollbar"></div>
-                </div>
-
+				
                 <!-- Thẻ hiển thị sau khi đã chọn tên thành công -->
                 <div id="currentUserCard" class="hidden bg-gradient-to-r from-emerald-950/40 to-slate-900 border border-emerald-500/20 p-2.5 rounded-2xl flex items-center justify-between">
                     <div class="flex items-center gap-1">
@@ -515,6 +504,50 @@ max-height:20px!important;
                         Thoát <i class="fa-solid fa-right-from-bracket ml-1"></i>
                     </button>
                 </div>
+				
+                <!-- HỘP TÌM KIẾM THÔNG MINH (Search Box) -->
+                <!--<div class="bg-slate-900/90 border border-red-100 p-2.5 rounded-2xl shadow-lg space-y-3">
+                    <label class="block text-base font-semibold text-indigo-900 font-black uppercase tracking-wider">Tìm kiếm tài khoản nhanh</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-700 text-base"></i>
+                        <input id="userSearchInput" type="text" oninput="filterUserList()" placeholder="Nhập tên nhân viên..." class="w-full bg-slate-950 border border-red-100 rounded-xl pl-10 pr-4 py-2 text-base text-slate-100 focus:outline-none focus:border-indigo-500 transition">
+                    </div>
+
+                    <!-- Danh sách kết quả tìm kiếm -->
+                <!-- <div id="searchUserResults" class="max-h-56 overflow-y-auto space-y-1.5 hide-scrollbar"></div>
+                     </div>
+				
+				<!-- HỘP TÌM KIẾM THÔNG MINH -->
+				<div class="bg-gradient-to-br from-white via-slate-50 to-white border border-slate-200 p-4 rounded-[28px] shadow-2xl space-y-4">
+
+					<!-- TITLE -->
+					<label class="block text-[26px] font-black text-indigo-700 uppercase tracking-wide leading-none">
+						Tìm kiếm tài khoản nhanh
+					</label>
+
+					<!-- SEARCH -->
+					<div class="relative">
+
+						<i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl"></i>
+
+						<input
+							id="userSearchInput"
+							type="text"
+							oninput="filterUserList()"
+							placeholder="Nhập tên nhân viên..."
+							class="w-full bg-white border border-slate-200 rounded-2xl pl-12 pr-4 py-4 text-[18px] font-bold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition shadow-md"
+						>
+
+					</div>
+
+					<!-- DANH SÁCH -->
+					<div
+						id="searchUserResults"
+						class="max-h-[72vh] overflow-y-auto space-y-3 hide-scrollbar pr-1"
+					></div>
+
+				</div>
+
             </section>
 
             <!-- ================= TAB 3: DỰ ĐOÁN (MỞ KHÓA SAU KHI ĐĂNG NHẬP) ================= -->
@@ -544,25 +577,86 @@ max-height:20px!important;
                 </div>
 
                 <!-- BÌNH CHỌN DÀI HẠN (Vua phá lưới & Vô địch) -->
-                <div class="glass-card p-2.5 rounded-2xl space-y-3">
-                    <div class="flex justify-between items-center">
-                        <h4 class="text-base font-bold uppercase tracking-wider text-indigo-900 font-black"><i class="fa-solid fa-award mr-1"></i> Dự đoán vô địch & phá lưới</h4>
-                        <span class="text-[9px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded font-bold">Chỉ chọn 1 lần</span>
-                    </div>
-                    <div class="grid grid-cols-2 gap-1">
-                        <div class="space-y-1">
-                            <label class="text-sm font-bold text-slate-700">Đội tuyển Vô địch:</label>
-                            <input id="inputChampion" type="text" placeholder="Ví dụ: Pháp, Đức..." class="w-full bg-slate-950 border border-red-100 rounded-lg p-2 text-base text-white focus:outline-none focus:border-indigo-500">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-sm font-bold text-slate-700">Vua Phá Lưới:</label>
-                            <input id="inputTopScorer" type="text" placeholder="Mbappe, Kane..." class="w-full bg-slate-950 border border-red-100 rounded-lg p-2 text-base text-white focus:outline-none focus:border-indigo-500">
-                        </div>
-                    </div>
-                    <button onclick="submitLongTermPredict()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white text-base font-bold py-2 rounded-xl transition shadow-lg shadow-indigo-600/15">
-                        <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Lưu bình chọn dài hạn
-                    </button>
-                </div>
+				<!-- BÌNH CHỌN DÀI HẠN (Vua phá lưới & Vô địch) -->
+				<div class="glass-card p-2.5 rounded-2xl">
+
+					<!-- HEADER -->
+					<div
+						class="flex justify-between items-center cursor-pointer"
+						onclick="toggleChampionBox()">
+
+						<div class="flex items-center gap-2">
+
+							<h4 class="text-base font-bold uppercase tracking-wider text-indigo-900 font-black">
+								<i class="fa-solid fa-award mr-1"></i>
+								Dự đoán vô địch & phá lưới
+							</h4>
+
+						</div>
+
+						<div class="flex items-center gap-2">
+
+							<span class="text-[9px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded font-bold">
+								Chỉ chọn 1 lần
+							</span>
+
+						<div
+						    id="championToggleBtn"
+						    class="w-5 h-5 rounded-full bg-indigo-600 text-white text-xs font-black flex items-center justify-center">
+						    +
+						</div>
+
+						</div>
+
+					</div>
+
+					<!-- CONTENT -->
+					<div id="championContent" class="hidden space-y-3 mt-3">
+
+						<div class="grid grid-cols-2 gap-1">
+
+							<div class="space-y-1">
+
+								<label class="text-sm font-bold text-slate-700">
+									Đội tuyển Vô địch:
+								</label>
+
+								<input
+									id="inputChampion"
+									type="text"
+									placeholder="Ví dụ: Pháp, Đức..."
+									class="w-full bg-slate-950 border border-red-100 rounded-lg p-2 text-base text-white focus:outline-none focus:border-indigo-500">
+
+							</div>
+
+							<div class="space-y-1">
+
+								<label class="text-sm font-bold text-slate-700">
+									Vua Phá Lưới:
+								</label>
+
+								<input
+									id="inputTopScorer"
+									type="text"
+									placeholder="Mbappe, Kane..."
+									class="w-full bg-slate-950 border border-red-100 rounded-lg p-2 text-base text-white focus:outline-none focus:border-indigo-500">
+
+							</div>
+
+						</div>
+
+						<button
+							onclick="submitLongTermPredict()"
+							class="w-full bg-indigo-600 hover:bg-indigo-500 text-white text-base font-bold py-2 rounded-xl transition shadow-lg shadow-indigo-600/15">
+
+							<i class="fa-solid fa-cloud-arrow-up mr-1"></i>
+							Lưu bình chọn dài hạn
+
+						</button>
+
+					</div>
+
+				</div>
 
                 <!-- Bộ lọc trạng thái đấu -->
                 <div class="flex gap-1.5 p-1 glass-card rounded-xl">
@@ -577,7 +671,7 @@ max-height:20px!important;
                         <i class="fa-regular fa-calendar-days text-indigo-900 font-black"></i> Các trận dự đoán hôm nay
                     </h3>
                     
-                    <div id="matchPredictList" class="space-y-3 max-h-[55vh] overflow-y-auto pr-1 custom-scroll">
+                    <div id="matchPredictList" class="space-y-3 overflow-y-auto pr-1 custom-scroll">
                         <div class="text-center py-8 text-slate-700 text-base">Đang tải lịch thi đấu...</div>
                     </div>
                 </div>
@@ -619,13 +713,13 @@ max-height:20px!important;
 
         <!-- THANH ĐIỀU HƯỚNG CHÂN TRANG (BOTTOM NAVIGATION) -->
         
-<footer class="bg-white shadow-lg/90 border-t border-red-100 py-2 px-6 sticky bottom-0 z-40 backdrop-blur-xl shadow-lg">
+<footer class="bg-white border-t border-slate-200 h-14 fixed bottom-0 left-0 right-0 z-50">
     <div class="flex justify-between items-center max-w-sm mx-auto">
 
         <button onclick="switchTab('profile')" id="nav-profile"
             class="flex flex-col items-center gap-1 group text-red-500">
 
-            <div class="w-10 h-6 rounded-full flex items-center justify-center">
+            <div class="w-10 h-4 rounded-full flex items-center justify-center">
                 <i class="fa-solid fa-user-gear text-lg"></i>
             </div>
 
@@ -637,7 +731,7 @@ max-height:20px!important;
         <button onclick="switchTab('predict')" id="nav-predict"
             class="hidden flex flex-col items-center gap-1 group text-slate-700 hover:text-red-500">
 
-            <div class="w-10 h-6 rounded-full flex items-center justify-center">
+            <div class="w-10 h-4 rounded-full flex items-center justify-center">
                 <i class="fa-solid fa-futbol text-lg"></i>
             </div>
 
@@ -649,7 +743,7 @@ max-height:20px!important;
         <button onclick="switchTab('dashboard')" id="nav-dashboard"
             class="flex flex-col items-center gap-1 group text-slate-700 hover:text-red-500">
 
-            <div class="w-10 h-6 rounded-full flex items-center justify-center">
+            <div class="w-10 h-4 rounded-full flex items-center justify-center">
                 <i class="fa-solid fa-trophy text-lg"></i>
             </div>
 
@@ -664,6 +758,12 @@ max-height:20px!important;
 
     </div>
 
+	<script>
+	
+	const APP_VERSION = "11E062026";
+		
+	</script>
+	
     <script>
         // MẪU DỮ LIỆU KHỞI TẠO CHUẨN (Được cập nhật bởi LocalStorage hoặc Online API)
         const DEFAULT_DB = {
@@ -691,7 +791,7 @@ max-height:20px!important;
 
         // Biến toàn cục
         let db = { ...DEFAULT_DB };
-        let API_URL = "https://script.google.com/macros/s/AKfycbzCPRE0WQjfju1ITF1mfv15Hd2ASYlkn2qFd21JkquD5ueGR9gaN_8EjuC6CfMMD3aI/exec";
+        let API_URL = "https://script.google.com/macros/s/AKfycbwEx3shqjHp3yp7nI-It5GYSrDbp3CTxFlHlOyfuxiTbzOjJ8EbOBTialXPCHjo9AtX/exec";
         let currentUser = null;
         let currentFilter = "all"; 
         let currentImportType = "users"; // "users" hoặc "matches"
@@ -943,45 +1043,10 @@ max-height:20px!important;
 
         // Tự động tính điểm và xếp hạng lại dựa trên tỷ số thực tế
         function recalculatePointsAndRanks() {
-            // Khởi tạo điểm nhân viên về 0
-            db.users.forEach(u => u.Points = 0);
-
-            // Duyệt qua từng dự đoán để đối chiếu tỷ số thực tế
-            db.predictions.forEach(p => {
-                const match = db.matches.find(m => m.MatchID === p.MatchID);
-                if (match && match.HomeScore !== null && match.AwayScore !== null && match.Status === "Đã kết thúc") {
-                    const realHome = Number(match.HomeScore);
-                    const realAway = Number(match.AwayScore);
-                    const predHome = Number(p.HomePredict);
-                    const predAway = Number(p.AwayPredict);
-
-                    let pts = 0;
-                    if (realHome === predHome && realAway === predAway) {
-                        pts = 3; // Đúng tỷ số: 3 điểm
-                    } else if (
-                        (realHome > realAway && predHome > predAway) ||
-                        (realHome < realAway && predHome < predAway) ||
-                        (realHome === realAway && predHome === predAway)
-                    ) {
-                        pts = 2; // Đúng kết quả: 2 điểm
-                    } else {
-                        pts = 0; // Đoán sai: 0 điểm
-                    }
-
-                    //p.PointsEarned = pts;
-
-                    // Cộng vào tổng điểm của User
-                    const user = db.users.find(u => u.ID === p.UserID);
-                    if (user) {
-                        //user.Points += pts;
-                    }
-                }
-            });
-
-            // Sắp xếp BXH
-            db.users.sort((a, b) => b.Points - a.Points);
-            db.users.forEach((u, idx) => u.Rank = idx + 1);
-        }
+		    db.users.sort(
+		        (a, b) => Number(a.Rank || 9999) - Number(b.Rank || 9999)
+		    );
+		}
 
         // ------------------ IMPORT EXCEL / CSV CHUYÊN NGHIỆP ------------------
         function setImportType(type) {
@@ -1089,8 +1154,12 @@ max-height:20px!important;
                 row.className = "bg-slate-950 p-2 rounded-xl flex items-center justify-between gap-1 border border-red-100";
                 row.innerHTML = `
                     <div class="flex-1 min-w-0">
-                        <span class="text-[9px] text-slate-700 block truncate">${match.MatchID} • ${match.MatchTime}</span>
-                        <span class="text-sm font-bold font-bold text-black font-bold block truncate">${match.HomeTeam} - ${match.AwayTeam}</span>
+                        <span class="text-[11px] font-bold text-white block truncate tracking-wide">
+							${match.MatchID} • ${match.MatchTime}
+						</span>
+                        <span class="text-[15px] font-extrabold text-white block truncate tracking-wide">
+							${match.HomeTeam} - ${match.AwayTeam}
+						</span>
                     </div>
                     <div class="flex items-center gap-1 shrink-0">
                         <input id="admin-home-${match.MatchID}" type="number" value="${homeScoreVal}" placeholder="-" class="w-8 h-8 bg-slate-900 border border-slate-700 rounded-lg text-center text-base font-bold text-white">
@@ -1158,11 +1227,12 @@ max-height:20px!important;
             listContainer.innerHTML = '';
 
             db.users.forEach((user, idx) => {
-                const rank = idx + 1;
+                const rank = Number(user.Rank || 9999);
                 let rankBadge = '';
                 
                 if (rank === 1) {
                     rankBadge = '<span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold text-base flex items-center justify-center shadow-lg shadow-amber-400/20"><i class="fa-solid fa-crown"></i></span>';
+					//rankBadge = '<span class="w-6 h-6 rounded-full bg-gradient-to-br from-red-400 via-red-600 to-red-900 text-white font-bold text-base flex items-center justify-center border border-red-300 shadow-lg shadow-red-600/50"><i class="fa-solid fa-crown"></i></span>';
                 } else if (rank === 2) {
                     rankBadge = '<span class="w-6 h-6 rounded-full bg-slate-300 text-slate-950 font-bold text-base flex items-center justify-center shadow-lg shadow-slate-300/20">2</span>';
                 } else if (rank === 3) {
@@ -1261,7 +1331,24 @@ max-height:20px!important;
         }
 
         function applyUserSession() {
-            if (!currentUser) return;
+            const deadline = new Date("2026-06-28T23:59:59");
+			if (new Date() > deadline) {
+			
+			    document.getElementById("inputChampion").disabled = true;
+			    document.getElementById("inputTopScorer").disabled = true;
+			
+			    const btn = document.querySelector(
+			        "#championContent button"
+			    );
+			
+			    if (btn) {
+			        btn.disabled = true;
+			        btn.innerHTML =
+			            '<i class="fa-solid fa-lock mr-1"></i> Đã khóa dự đoán';
+			    }
+			}
+			
+			if (!currentUser) return;
 
             document.getElementById('currentUserCard').classList.remove('hidden');
             document.getElementById('selectedUserName').innerText = `${currentUser.Name} (${currentUser.Department})`;
@@ -1369,17 +1456,28 @@ max-height:20px!important;
 
 			// ================= TAB CHƯA ĐẤU =================
 			else if (currentFilter === 'pending') {
-
-				matchesToShow = todayMatches.filter(m => {
-					const matchDate = new Date(
-						m.MatchTime.replace(' ', 'T')
-					);
-
-					return (
-						m.Status !== "Đã kết thúc" &&
-						now < matchDate
-					);
-				});
+			
+			    matchesToShow = db.matches.filter(match => {
+			
+			        if (!match.MatchTime) return false;
+			
+			        const matchDate = new Date(
+			            match.MatchTime.replace(' ', 'T')
+			        );
+			
+			        if (isNaN(matchDate)) return false;
+			
+			        const openTime = new Date(
+			            matchDate.getTime() - 24 * 60 * 60 * 1000
+			        );
+			
+			        return (
+			            now >= openTime &&
+			            now < matchDate &&
+			            match.Status !== "Đã kết thúc"
+			        );
+			    });
+			
 			}
 
 			// ================= TAB ĐÃ XONG =================
@@ -1411,10 +1509,10 @@ max-height:20px!important;
                 const awayPredVal = prediction ? prediction.AwayPredict : '';
 
                 const card = document.createElement('div');
-                if (match.Status === "Đã kết thúc") {
+				if (match.Status === "Đã kết thúc") {
 
 					card.className =
-						"bg-gradient-to-br from-orange-950/40 to-slate-900 border border-orange-500/30 p-2.5 rounded-2xl space-y-3 relative overflow-hidden transition shadow-lg shadow-orange-500/10";
+						"bg-gradient-to-r from-white via-orange-100 to-white border border-orange-200 p-3 rounded-3xl space-y-3 relative overflow-hidden transition shadow-md";
 
 				} else {
 
@@ -1434,39 +1532,19 @@ max-height:20px!important;
 						match.MatchTime.replace(' ', 'T')
 					);
 
-					// ===== NGÀY HÔM NAY VN =====
-					const vnNow = new Date(
-						now.toLocaleString('en-US', {
-							timeZone: 'Asia/Ho_Chi_Minh'
-						})
-					);
-
-					const vnMatch = new Date(
-						matchDate.toLocaleString('en-US', {
-							timeZone: 'Asia/Ho_Chi_Minh'
-						})
-					);
-
-					const todayStr =
-						vnNow.getFullYear() + '-' +
-						String(vnNow.getMonth() + 1).padStart(2, '0') + '-' +
-						String(vnNow.getDate()).padStart(2, '0');
-
-					const matchStr =
-						vnMatch.getFullYear() + '-' +
-						String(vnMatch.getMonth() + 1).padStart(2, '0') + '-' +
-						String(vnMatch.getDate()).padStart(2, '0');
-
-					// ===== CHỈ MỞ BÌNH CHỌN:
-					// 1. Đúng ngày hôm nay
-					// 2. Chưa tới giờ đá
-					if (
-						todayStr === matchStr &&
-						now < matchDate &&
-						match.Status !== "Đã kết thúc"
-					) {
-						isLocked = false;
-					}
+				// ===== MỞ BÌNH CHỌN TRƯỚC 24 GIỜ =====
+				const openTime = new Date(
+				    matchDate.getTime() - 24 * 60 * 60 * 1000
+				);
+				
+				if (
+				    now >= openTime &&
+				    now < matchDate &&
+				    match.Status !== "Đã kết thúc"
+				) {
+				    isLocked = false;
+				}
+					
 				}
 
                 // Nhãn trạng thái & Điểm cộng
@@ -1478,7 +1556,7 @@ max-height:20px!important;
 					statusHeader = `
 					<div class="flex items-center gap-1 bg-orange-500/10 border border-orange-500/20 px-2 py-0.5 rounded-lg">
 
-						<span class="text-sm font-bold text-orange-300 font-semibold uppercase tracking-wide">
+						<span class="text-sm font-bold text-black-300 font-semibold uppercase tracking-wide">
 							Kết thúc
 						</span>
 
@@ -1509,7 +1587,7 @@ max-height:20px!important;
 						<i class="fa-solid fa-lock text-red-400 text-sm font-bold"></i>
 
 						<span class="text-sm font-bold text-red-300 font-semibold uppercase">
-							Đã khóa cược
+							Đã khóa
 						</span>
 
 					</div>
@@ -1523,7 +1601,7 @@ max-height:20px!important;
 						<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
 
 						<span class="text-sm font-bold text-emerald-300 font-semibold uppercase tracking-wide">
-							Đang mở cược
+							Đang mở
 						</span>
 
 					</div>
@@ -1636,7 +1714,18 @@ max-height:20px!important;
         }
 
         function submitLongTermPredict() {
-            if (!currentUser) return;
+            const deadline = new Date("2026-06-28T23:59:59");
+
+			if (new Date() > deadline) {
+			    showAlert(
+			        "Đã khóa",
+			        "Hết thời gian dự đoán Đội vô địch và Vua phá lưới.",
+			        "warning"
+			    );
+			    return;
+			}
+			
+			if (!currentUser) return;
 
             const champion = document.getElementById('inputChampion').value.trim();
             const topScorer = document.getElementById('inputTopScorer').value.trim();
@@ -1687,6 +1776,42 @@ max-height:20px!important;
             document.getElementById('customAlert').classList.add('hidden');
             document.getElementById('alertOverlay').classList.add('hidden');
         }
+		
+		async function stressTestLockService() {
+
+			const totalRequests = 30;
+
+			const promises = [];
+
+			for (let i = 0; i < totalRequests; i++) {
+
+				const payload = {
+					action: "submitPrediction",
+					userId: "TEST_" + i,
+					matchId: "M01",
+					homePredict: Math.floor(Math.random() * 5),
+					awayPredict: Math.floor(Math.random() * 5)
+				};
+
+				const p = fetch(API_URL, {
+					method: "POST",
+					body: JSON.stringify(payload)
+				})
+				.then(r => r.json())
+				.then(data => {
+					console.log("SUCCESS", i, data);
+				})
+				.catch(err => {
+					console.error("ERROR", i, err);
+				});
+
+				promises.push(p);
+			}
+
+			await Promise.all(promises);
+
+			console.log("DONE TEST");
+		}
     </script>
 
 <script>
@@ -1711,12 +1836,53 @@ function autoUpdatePointsEarned(){
                 p.PointsEarned = 0;
             }
         }
-
     });
-
 }
+
 setInterval(autoUpdatePointsEarned,3000);
 </script>
 
+<script>
+function toggleChampionBox() {
+
+    const content = document.getElementById("championContent");
+    const btn = document.getElementById("championToggleBtn");
+
+    if (content.classList.contains("hidden")) {
+        content.classList.remove("hidden");
+        btn.innerHTML = "-";
+    } else {
+        content.classList.add("hidden");
+        btn.innerHTML = "+";
+    }
+}
+</script>
+
+<script>
+async function checkNewVersion() {
+    try {
+        const response =
+            await fetch(
+                "version.json?t=" + Date.now()
+            );
+        const data = await response.json();
+
+        if (data.version !== APP_VERSION) {
+
+            showAlert(
+                "Có phiên bản mới",
+                "Vui lòng tải lại trang để cập nhật",
+                "info"
+            );
+        }
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+checkNewVersion();
+setInterval(checkNewVersion, 60000);
+</script>
 </body>
 </html>
+	
